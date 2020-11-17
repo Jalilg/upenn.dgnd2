@@ -738,7 +738,12 @@ html {
 *, *::before, *::after {
   box-sizing: inherit;
 }
-.wrapper {
+
+.appalachia {
+  z-index: 1;
+}
+
+.timeline .wrapper {
   margin: 0 auto;
   padding: 0 16.66% 50px;
   width: 100%;
@@ -748,18 +753,18 @@ article {
   max-width: 980px;
   margin: 0 auto;
 }
-.timeline__nav {
-  position: absolute;
+.timeline .timeline__nav {
+  position: fixed;
   z-index: 99;
   top: 0;
   transition: top 0.3s ease-out;
 }
-.timeline__nav ul {
+.timeline .timeline__nav ul {
   list-style: none;
   list-style-position: inside;
   margin: 15px 0;
 }
-.timeline__nav ul li {
+.timeline .timeline__nav ul li {
   margin: 15px 0;
   padding-left: 0;
   list-style-type: none;
@@ -768,15 +773,86 @@ article {
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
-.timeline__nav ul li.active {
+.timeline .timeline__nav ul li.active {
   font-weight: bold;
   color: #f94125;
   border-bottom: 1px dotted transparent;
   transform: scale(1.2);
 }
-.timeline__nav ul li:hover {
+.timeline .timeline__nav ul li:hover {
   color: #000;
 }
+
+/*--------------------------------------------------------------
+# Appalachia
+--------------------------------------------------------------*/
+
+.appalachia {
+
+  position: relative;
+  z-index: 3;
+}
+
+.appalachia .content {
+  padding: 30px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.appalachia .content h3 {
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
+.appalachia .content p {
+  margin-bottom: 30px;
+}
+
+.appalachia .content .more-btn {
+  display: inline-block;
+  background: #0F6E60;
+  padding: 6px 30px 8px 30px;
+  color: #fff;
+  border-radius: 50px;
+  transition: all ease-in-out 0.4s;
+}
+
+.appalachia .content .more-btn i {
+  font-size: 14px;
+}
+
+.appalachia .content .more-btn:hover {
+  color: #0F6E60;
+  background: #fff;
+}
+
+.appalachia .icon-boxes .icon-box {
+  text-align: center;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  width: 100%;
+}
+
+.appalachia .icon-boxes .icon-box i {
+  font-size: 40px;
+  color: #0F6E60;
+  margin-bottom: 30px;
+}
+
+.appalachia .icon-boxes .icon-box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+}
+
+.appalachia .icon-boxes .icon-box p {
+  font-size: 15px;
+  color: #716f6f;
+}
+
 
 /*--------------------------------------------------------------
 # Clients
