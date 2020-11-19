@@ -60,7 +60,7 @@ h3 {
 
 .back-to-top:hover {
   color: #fff;
-  background: #ff774a;
+  background: #1bc2a9;
   transition: background 0.2s ease-in-out;
 }
 
@@ -436,7 +436,7 @@ section {
 }
 
 .section-bg {
-  background-color: #fff9f7;
+  background-color: #f5fffd;
 }
 
 .section-title {
@@ -1248,7 +1248,7 @@ article {
 }
 
 .blog .entry .entry-content .read-more a:hover {
-  background: #ff774a;
+  background: #1bc2a9;
 }
 
 .blog .entry .entry-content h3 {
@@ -1746,7 +1746,7 @@ article {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #ffa587;
+  color: #1bc2a9;
   font-size: 18px;
   line-height: 1;
 }
@@ -1792,7 +1792,7 @@ article {
   position: relative;
   border-radius: 50px;
   text-align: left;
-  border: 1px solid #ffe2d9;
+  border: 1px solid #1bc2a9;
 }
 
 #footer .footer-newsletter form input[type="email"] {
@@ -1818,7 +1818,7 @@ article {
 }
 
 #footer .footer-newsletter form input[type="submit"]:hover {
-  background: #ed3b00;
+  background: #1bc2a9;
 }
 
 #footer .credits {
@@ -1843,7 +1843,7 @@ article {
 }
 
 #footer .social-links a:hover {
-  background: #ff7e54;
+  background: #1bc2a9;
   color: #fff;
   text-decoration: none;
 }
