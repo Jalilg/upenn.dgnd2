@@ -772,7 +772,7 @@ article {
 }
 .timeline .timeline__nav ul li.active {
   font-weight: bold;
-  color: #f94125;
+  color: #0F6E60;
   border-bottom: 1px dotted transparent;
   transform: scale(1.2);
 }
