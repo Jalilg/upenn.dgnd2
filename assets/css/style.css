@@ -105,7 +105,7 @@ h6 {
 }
 
 #header .logo h1 {
-  font-size: 22px;
+  font-size: 20 px;
   margin: 0;
   padding: 8px 0;
   line-height: 1;
@@ -114,7 +114,7 @@ h6 {
 }
 
 #header .logo h1 a, #header .logo h1 a:hover {
-  color: #635551;
+  color: #6B6B6B;
   text-decoration: none;
 }
 
@@ -147,7 +147,7 @@ h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #635551;
+  color: #6B6B6B;
   padding: 11px 15px;
   transition: 0.3s;
   font-size: 14px;
@@ -474,7 +474,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 0;
   font-family: "Poppins", sans-serif;
-  color: #635551;
+  color: #6B6B6B;
 }
 
 .section-title p {
@@ -511,7 +511,7 @@ section {
 .breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #635551;
+  color: #6B6B6B;
   content: "/";
 }
 
@@ -1616,7 +1616,7 @@ tr {
 }
 
 .blog .sidebar .search-form form button:hover {
-  background: #635551;
+  background: #6B6B6B;
 }
 
 .blog .sidebar .categories ul {
