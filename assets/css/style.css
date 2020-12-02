@@ -26,10 +26,34 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif;
 }
 
+h2 {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
 h3 {
   font-weight: 700;
   font-size: 34px;
   margin-bottom: 30px;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+h6 {
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 14px;
 }
 
 
@@ -401,7 +425,7 @@ h3 {
 
 @media (max-width: 1024px), (max-height: 768px) {
   #hero {
-    margin-bottom: -150px;
+    margin-bottom: 20px;
     height: 80vh;
   }
 }
@@ -492,32 +516,28 @@ section {
 }
 
 /*--------------------------------------------------------------
-# What is the GND
+# Region Spec Intro
 --------------------------------------------------------------*/
-.what-is-the-gnd {
+.region-spec-intro {
   padding: 0 0 30px 0;
   position: relative;
-  z-index: 3;
-}
-
-.what-is-the-gnd .content {
   padding: 30px;
-  background: #0F6E60;
+  /*background: #0F6E60;*/
   border-radius: 4px;
   color: #fff;
 }
 
-.what-is-the-gnd .content h3 {
+.region-spec-intro .content h3 {
   font-weight: 700;
   font-size: 34px;
   margin-bottom: 30px;
 }
 
-.what-is-the-gnd .content p {
+.region-spec-intro p {
   margin-bottom: 30px;
 }
 
-.what-is-the-gnd .content .more-btn {
+.region-spec-intro .more-btn {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
   padding: 6px 30px 8px 30px;
@@ -526,16 +546,16 @@ section {
   transition: all ease-in-out 0.4s;
 }
 
-.what-is-the-gnd .content .more-btn i {
+.region-spec-intro .more-btn i {
   font-size: 14px;
 }
 
-.what-is-the-gnd .content .more-btn:hover {
+.region-spec-intro .more-btn:hover {
   color: #0F6E60;
   background: #fff;
 }
 
-.what-is-the-gnd .icon-boxes .icon-box {
+.region-spec-intro .icon-boxes .icon-box {
   text-align: center;
   border-radius: 4px;
   background: #fff;
@@ -544,19 +564,19 @@ section {
   width: 100%;
 }
 
-.what-is-the-gnd .icon-boxes .icon-box i {
+.region-spec-intro .icon-boxes .icon-box i {
   font-size: 40px;
   color: #0F6E60;
   margin-bottom: 30px;
 }
 
-.what-is-the-gnd .icon-boxes .icon-box h4 {
+.region-spec-intro .icon-boxes .icon-box h4 {
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 30px 0;
 }
 
-.what-is-the-gnd .icon-boxes .icon-box p {
+.region-spec-intro .icon-boxes .icon-box p {
   font-size: 15px;
   color: #716f6f;
 }
