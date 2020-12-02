@@ -537,7 +537,15 @@ section {
   margin-bottom: 30px;
 }
 
-.region-spec-intro .more-btn {
+.region-spec-intro .atlas-btn {
+  display: inline-block;
+  padding: 6px 30px 8px 30px;
+  color: #fff;
+  border-radius: 50px;
+  transition: all ease-in-out 0.4s;
+}
+
+.region-spec-intro .future-btn {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
   padding: 6px 30px 8px 30px;
@@ -546,11 +554,16 @@ section {
   transition: all ease-in-out 0.4s;
 }
 
-.region-spec-intro .more-btn i {
+
+.region-spec-intro .future-btn i {
   font-size: 14px;
 }
 
-.region-spec-intro .more-btn:hover {
+.region-spec-intro .atlas-btn i {
+  font-size: 14px;
+}
+
+.region-spec-intro .future-btn:hover {
   color: #0F6E60;
   background: #fff;
 }
