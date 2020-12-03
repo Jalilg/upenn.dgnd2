@@ -7,9 +7,12 @@
 html {
   box-sizing: border-box;
 }
+
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #313030;
+  overflow-y: scroll; /* Add the ability to scroll */
 }
 
 *, *::before, *::after {
@@ -65,6 +68,7 @@ article {
   z-index: 99;
   top: 0;
   transition: top 0.3s ease-out;
+  margin-left: -35px;
 }
 .timeline__nav ul {
   list-style: none;
