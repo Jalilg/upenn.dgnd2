@@ -76,7 +76,7 @@
 <script type="text/x-handlebars-template" id="page">{{#if pin}} {{!-- Do not render pins in this view --}} {{else}} <div data-container="page" class="page_container" {{#if page_options.local_layout_options.split_responsive}}split-responsive {{else}}{{#if page_options.local_layout_options.split_layout}}split-layout {{/if}}{{/if}}local-style="{{id}}" data-id="{{id}}"> <div class="page container container_width" data-container="content" data-id="{{id}}"> <bodycopy class="bodycopy content content_padding"> <div class="page_content clearfix" data-elementresizer data-resize-parent> {{print "content"}} </div> {{{ page_options.svg_overlay }}} </bodycopy> </div> <div class="page_background"></div> <style class="local-css" data-target="{{id}}"> {{{ page_options.local_css }}} </style> {{#if_all backdrop backdrop_enabled}} <div data-backdrop="{{backdrop.backdrop_path}}" class="backdrop" data-view="Backdrop" data-id="{{id}}"> [script type="text/json" data-set="backdrop_data">{{{stringify backdrop}}}[/script> </div> {{/if_all}} </div> {{/if}}</script>
 <script type="text/x-handlebars-template" id="content">{{#each content}} {{#if pin}}{{!-- Do not render pins in this view --}} {{else}} {{#if this.is_set}} <div data-container="{{#if this.is_set}}set{{else}}page{{/if}}" data-id="{{id}}"> {{>page_master}} </div> {{else}} {{>page_master}} {{/if}} {{/if}} {{/each}}</script>
 <script type="text/x-handlebars-template" id="sitemenu"><div id="site_menu_panel"> <div id="site_menu" class="site_menu"> <div class="page-link home-link {{#if display_options.site_menu_options.show_homepage}} {{else}}hidden{{/if}}"> <a href="" rel="home_page">Homepage</a> <div class="break"></div> </div> {{#each site_menu_tree.pages}} {{>sitemenu_item}} {{/each}} <div class="close">×</div> </div> </div></script>
-<script type="text/x-handlebars-template" id="sitemenu_item">{{#if is_set}} {{#if in_nav}} <div class="set-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> {{#if_equal set_id 0}} {{#if has_children}} {{#if_equal previous_type "page"}} <div class="break"></div> {{/if_equal}} {{/if}} {{/if_equal}} {{#if in_nav}} <a href="{{project_url}}" rel="history">{{title}}</a> {{/if}} <div data-set-wrapper {{#if in_nav}}class="indent"{{/if}}> {{/if}} {{#each pages}} {{>sitemenu_item}} {{/each}} {{#if in_nav}} </div> </div> {{/if}} {{else}} {{#if in_nav}} <div class="page-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> <a href="{{project_url}}" rel="history">{{title}}</a> </div> {{/if}} {{/if}}</script>
+<script type="text/x-handlebars-template" id="sitemenu_item">{{#if is_set}} {{#if in_nav}} <div class="set-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> {{#if_equal set_id 0}} {{#if has_children}} {{#if_equal previous_type "page"}} <div class="break"></div> {{/if_equal}} {{/if}} {{/if_equal}} {{#if in_nav}} <a href="{{project_url}}" >{{title}}</a> {{/if}} <div data-set-wrapper {{#if in_nav}}class="indent"{{/if}}> {{/if}} {{#each pages}} {{>sitemenu_item}} {{/each}} {{#if in_nav}} </div> </div> {{/if}} {{else}} {{#if in_nav}} <div class="page-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> <a href="{{project_url}}" >{{title}}</a> </div> {{/if}} {{/if}}</script>
 <script type="text/x-handlebars-template" id="pin"><div class="page_container{{#if pin_options.overlay}} overlay{{/if}}{{#if pin_options.accommodate}} accommodate{{/if}}{{#if pin_options.fixed}} fixed{{/if}}{{#if pin_options.exclude_mobile}} exclude_mobile{{/if}}{{#if pin_options.exclude_desktop}} exclude_desktop{{/if}}{{#if_equal pin_options.position 'bottom'}}{{#unless pin_options.fixed}} bottom_pin_invisibility{{/unless}}{{/if_equal}}" {{#if page_options.local_layout_options.split_responsive}}split-responsive {{else}}{{#if page_options.local_layout_options.split_layout}}split-layout {{/if}}{{/if}}local-style="{{id}}"> <div class="page container container_width clearfix" data-container="content" data-id="{{id}}"> <bodycopy class="bodycopy content content_padding"> {{#if_option "title_in_project"}} {{#if show_title}} <div class="project_title" style="display: none"> {{{title}}} </div> {{/if}} {{/if_option}} <div class="page_content clearfix" data-elementresizer data-resize-parent> {{print "content"}} </div> {{{ page_options.svg_overlay }}} </bodycopy> </div> <div class="page_background"></div> <style class="local-css" data-target="{{id}}"> {{{ page_options.local_css }}} </style> {{#if_all backdrop backdrop_enabled}} <div data-backdrop="{{backdrop.backdrop_path}}" class="backdrop" data-view="Backdrop" data-id="{{backdrop.page_id}}">[script type="text/json" data-set="backdrop_data">{{{stringify backdrop}}}[/script></div> {{/if_all}} </div></script>
 <script type="text/x-handlebars-template" id="pinned_top">{{#each pinned}} {{#if pin}} {{#if_equal pin_options.position 'top'}} {{>pin}} {{/if_equal}} {{/if}} {{/each}}</script>
 <script type="text/x-handlebars-template" id="pinned_bottom">{{#each pinned}} {{#if pin}} {{#if_equal pin_options.position 'bottom'}} {{>pin}} {{/if_equal}} {{/if}} {{/each}}</script>
@@ -397,7 +397,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				
 				<div class="page_content clearfix" data-elementresizer data-resize-parent>
 					<projectcontent><div class="mobile-padding page"><div grid-row="" grid-pad="0" grid-gutter="0" grid-responsive="">
-	<div grid-col="x12" grid-pad="0"><h1><span class="h1-title--font" style="color: #000;"><div style="text-align: center; line-height: 1.2;"><b><a href="CURRENT-VOLUME.html" rel="history" class="a-gen">VOLUME 1&nbsp;<br>YOUR MODEL MINORITY?</a></b>
+	<div grid-col="x12" grid-pad="0"><h1><span class="h1-title--font" style="color: #000;"><div style="text-align: center; line-height: 1.2;"><b><a href="CURRENT-VOLUME.html" class="a-gen">VOLUME 1&nbsp;<br>YOUR MODEL MINORITY?</a></b>
 </div></span></h1></div>
 </div><br>
 <br>
@@ -405,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div grid-row="" grid-pad="0" grid-gutter="0" grid-responsive="">
 	<div grid-col="2" grid-pad="0"></div>
 	<div grid-col="8" grid-pad="0">
-<span style="color: #000;"><a href="Current-Volume-2.html" rel="history"><span class="a-gen" style="color: #000;">They say diversity is being invited to the party and that inclusion means being invited to dance. We say that inclusion is also about being allowed to throw a party from time to time. For this first volume, we wanted to host a conversation around the “model minority” myth, otherwise called the “good immigrant” concept, here in Canada. We questioned whether the topic of this first volume—the “model minority” myth— remained at all relevant considering how quickly we saw mainstream portrayal of Asians turn back into a “new yellow peril” , a threat to the Western world, following the declaration of COVID-19 as a global emergency. I realize now that the pandemic more clearly exposed the hypocrisy of the problematic model minority narrative. It shows us who is really in control of the portrayal of Asians in the media. The model minority designation finds its popularity in the United States, based on generalized statistical data showing that the Asian diaspora enjoyed the highest rate of educational attainment and average household income of all minority ethnic groups. Over the past several decades, the oversimplified model minority dialectic has taken on a life of its own and continues to affect the experiences of many people of color in harmful ways. Rather than dispute its truth or falsity of its claims, we wanted to shed light on its origins and discuss how the model minority narrative influences the lives of Asian-Canadians. And where do we go from here?</span></a><br></span>
+<span style="color: #000;"><a href="Current-Volume-2.html" ><span class="a-gen" style="color: #000;">They say diversity is being invited to the party and that inclusion means being invited to dance. We say that inclusion is also about being allowed to throw a party from time to time. For this first volume, we wanted to host a conversation around the “model minority” myth, otherwise called the “good immigrant” concept, here in Canada. We questioned whether the topic of this first volume—the “model minority” myth— remained at all relevant considering how quickly we saw mainstream portrayal of Asians turn back into a “new yellow peril” , a threat to the Western world, following the declaration of COVID-19 as a global emergency. I realize now that the pandemic more clearly exposed the hypocrisy of the problematic model minority narrative. It shows us who is really in control of the portrayal of Asians in the media. The model minority designation finds its popularity in the United States, based on generalized statistical data showing that the Asian diaspora enjoyed the highest rate of educational attainment and average household income of all minority ethnic groups. Over the past several decades, the oversimplified model minority dialectic has taken on a life of its own and continues to affect the experiences of many people of color in harmful ways. Rather than dispute its truth or falsity of its claims, we wanted to shed light on its origins and discuss how the model minority narrative influences the lives of Asian-Canadians. And where do we go from here?</span></a><br></span>
 <br>
 
 </div>
@@ -414,7 +414,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <br><br class="no-mobile"><br class="no-mobile">
 <div style="text-align: center;">
 
-<a href="Current-Volume-2.html" rel="history"><span style="color: #000;"><img src="../freight.cargo.site/t/original/i/84ecbfd28e31c6f20bb767fc6cf99a054b23873c3873a7135a2df3f1c5343503/SR_Buttons_v20200614a_OC-18.png" alt="CurrentVolume" class="imgbutton"></span></a><br><br>
+<a href="Current-Volume-2.html" ><span style="color: #000;"><img src="../freight.cargo.site/t/original/i/84ecbfd28e31c6f20bb767fc6cf99a054b23873c3873a7135a2df3f1c5343503/SR_Buttons_v20200614a_OC-18.png" alt="CurrentVolume" class="imgbutton"></span></a><br><br>
 </div>
 <br>
 
@@ -427,7 +427,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	<div grid-col="x12" grid-pad="0">
    
 <div style="text-align: center;object-fit: cover;">
-<a href="Current-Volume-2.html" rel="history" class="image-link"><img src="../freight.cargo.site/t/original/i/c642bef698f63c5e465536b243ca0f43dfc590954feec10583823792fdd64ced/SR_Homepage_Asset01_v20200529a_OC.jpg" alt="CurrentVolume" style="width:95vw;height:auto;"></a>
+<a href="Current-Volume-2.html"  class="image-link"><img src="../freight.cargo.site/t/original/i/c642bef698f63c5e465536b243ca0f43dfc590954feec10583823792fdd64ced/SR_Homepage_Asset01_v20200529a_OC.jpg" alt="CurrentVolume" style="width:95vw;height:auto;"></a>
 </div>
 </div>
 </div><br></projectcontent>
@@ -572,7 +572,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <!-- 1st article -->
       
         <div grid-col="x10" grid-pad="2">
-  <a href="Weaving-Timelines-The-Seeds-Sow-Deeper-Than-We-Know.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/90c4091c13064f059f3bf4d85e437e847215dd8dd72c9e26ce616e42510c6569/Thumbnail-hero-min.png" style="width: 100%" border="0" alt="Thumbnail image for Weaving Timelines: The Seeds Sow Deeper Than We Know"><br>
+  <a href="Weaving-Timelines-The-Seeds-Sow-Deeper-Than-We-Know.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/90c4091c13064f059f3bf4d85e437e847215dd8dd72c9e26ce616e42510c6569/Thumbnail-hero-min.png" style="width: 100%" border="0" alt="Thumbnail image for Weaving Timelines: The Seeds Sow Deeper Than We Know"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>Weaving Timelines: The Seeds Sow Deeper Than We Know
     </div>
@@ -586,7 +586,7 @@ document.addEventListener("DOMContentLoaded", function() {
  
       
 <div grid-col="x10" grid-pad="2">
-  <a href="The-Sixth-Love-Language.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/194c93624c054c3e8159621ae16670acd062be9e6f76f25095d39afceec230b6/thumbnail2.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Sixth Love Language"><br>
+  <a href="The-Sixth-Love-Language.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/194c93624c054c3e8159621ae16670acd062be9e6f76f25095d39afceec230b6/thumbnail2.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Sixth Love Language"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>The Sixth Love Language
     </div>
@@ -605,7 +605,7 @@ document.addEventListener("DOMContentLoaded", function() {
       
            
     <div grid-col="x10" grid-pad="2">
- <a href="The-Tokyo-Aesthetic-Dispatches-from-the-Streets-of-Fashion-Week.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/1bc340c6cac4e3520e2b65e1a5ebef1cfb2831803ba0188689ef398ea174b00a/For-Sticky-7.jpg" style="width: 100%" border="0" alt="Thumbnail for the article The Tokyo Aesthetic: Dispatches from the Streets of Fashion Week"><br>
+ <a href="The-Tokyo-Aesthetic-Dispatches-from-the-Streets-of-Fashion-Week.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/1bc340c6cac4e3520e2b65e1a5ebef1cfb2831803ba0188689ef398ea174b00a/For-Sticky-7.jpg" style="width: 100%" border="0" alt="Thumbnail for the article The Tokyo Aesthetic: Dispatches from the Streets of Fashion Week"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>The Tokyo Aesthetic: Dispatches from the Streets of Fashion Week
     </div>
@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <div style="text-align: center">
         <br><br><br>
         <br>
-        <a href="Lifestyle.html" rel="history" class="image-link"><img src="../freight.cargo.site/t/original/i/035576278b13d71aa82d83d624ffab7f91e159d6c8e9e63daec2e54abf30523d/SR_Buttons_v20200530b_OC-19-1.png" alt="Lifestyle" class="imgbutton"></a>
+        <a href="Lifestyle.html"  class="image-link"><img src="../freight.cargo.site/t/original/i/035576278b13d71aa82d83d624ffab7f91e159d6c8e9e63daec2e54abf30523d/SR_Buttons_v20200530b_OC-19-1.png" alt="Lifestyle" class="imgbutton"></a>
       </div>
     </div>
   </div>
@@ -813,7 +813,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				<projectcontent><div grid-row="" grid-pad="1" grid-gutter="2" id="navbar-left" style="visibility: visible; opacity: 1;">
   <div grid-col="4" grid-pad="1">
     &nbsp; &nbsp;
-    <a href="Landing-Page.html" rel="history" class="logo-nav--small">
+    <a href="Landing-Page.html" class="logo-nav--small">
       <span class="homepage-logo-desktop image-link"><img src="../freight.cargo.site/t/original/i/aef7769d0ba89f6970e95aef99f180b969da1208715dcbafcb6322c5549eb70c/SR_Buttons_MobileLogo2-09.png" class="imgnavbutton"></span>
       <span class="homepage-logo-mobile image-link"><img src="../freight.cargo.site/t/original/i/aef7769d0ba89f6970e95aef99f180b969da1208715dcbafcb6322c5549eb70c/SR_Buttons_MobileLogo2-09.png" class="imgnavbutton"></span></a>
   </div>
@@ -916,7 +916,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			
 			<div class="page_content clearfix" data-elementresizer data-resize-parent>
-				<projectcontent><div grid-row="" grid-pad="0" grid-gutter="0" class=""><div grid-col="x10" grid-pad="0"><div class="mobile-center-align" style="text-align: left"><div style="text-align: left"><span class="logo-footer--small"><a href="Landing-Page.html" rel="history" class="image-link"><img width="440" height="429" width_o="440" height_o="429" data-src="https://freight.cargo.site/t/original/i/da592710ba0bec33737bfc54f48d4d08df8b654cf9aefe1975446cb932f989ec/stickyrice-logo_s.png" data-mid="63739788" border="0" data-scale="12"/></a></span></div><br>
+				<projectcontent><div grid-row="" grid-pad="0" grid-gutter="0" class=""><div grid-col="x10" grid-pad="0"><div class="mobile-center-align" style="text-align: left"><div style="text-align: left"><span class="logo-footer--small"><a href="Landing-Page.html" class="image-link"><img width="440" height="429" width_o="440" height_o="429" data-src="https://freight.cargo.site/t/original/i/da592710ba0bec33737bfc54f48d4d08df8b654cf9aefe1975446cb932f989ec/stickyrice-logo_s.png" data-mid="63739788" border="0" data-scale="12"/></a></span></div><br>
 </div></div><div grid-col="x10" grid-pad="0"><div class="mobile-center-align" style="text-align: left;">
 <b>FOLLOW US ON</b><br>
 <br>
