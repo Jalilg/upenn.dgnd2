@@ -76,7 +76,7 @@
 <script type="text/x-handlebars-template" id="page">{{#if pin}} {{!-- Do not render pins in this view --}} {{else}} <div data-container="page" class="page_container" {{#if page_options.local_layout_options.split_responsive}}split-responsive {{else}}{{#if page_options.local_layout_options.split_layout}}split-layout {{/if}}{{/if}}local-style="{{id}}" data-id="{{id}}"> <div class="page container container_width" data-container="content" data-id="{{id}}"> <bodycopy class="bodycopy content content_padding"> <div class="page_content clearfix" data-elementresizer data-resize-parent> {{print "content"}} </div> {{{ page_options.svg_overlay }}} </bodycopy> </div> <div class="page_background"></div> <style class="local-css" data-target="{{id}}"> {{{ page_options.local_css }}} </style> {{#if_all backdrop backdrop_enabled}} <div data-backdrop="{{backdrop.backdrop_path}}" class="backdrop" data-view="Backdrop" data-id="{{id}}"> [script type="text/json" data-set="backdrop_data">{{{stringify backdrop}}}[/script> </div> {{/if_all}} </div> {{/if}}</script>
 <script type="text/x-handlebars-template" id="content">{{#each content}} {{#if pin}}{{!-- Do not render pins in this view --}} {{else}} {{#if this.is_set}} <div data-container="{{#if this.is_set}}set{{else}}page{{/if}}" data-id="{{id}}"> {{>page_master}} </div> {{else}} {{>page_master}} {{/if}} {{/if}} {{/each}}</script>
 <script type="text/x-handlebars-template" id="sitemenu"><div id="site_menu_panel"> <div id="site_menu" class="site_menu"> <div class="page-link home-link {{#if display_options.site_menu_options.show_homepage}} {{else}}hidden{{/if}}"> <a href="" rel="home_page">Homepage</a> <div class="break"></div> </div> {{#each site_menu_tree.pages}} {{>sitemenu_item}} {{/each}} <div class="close">×</div> </div> </div></script>
-<script type="text/x-handlebars-template" id="sitemenu_item">{{#if is_set}} {{#if in_nav}} <div class="set-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> {{#if_equal set_id 0}} {{#if has_children}} {{#if_equal previous_type "page"}} <div class="break"></div> {{/if_equal}} {{/if}} {{/if_equal}} {{#if in_nav}} <a href="{{project_url}}" rel="history">{{title}}</a> {{/if}} <div data-set-wrapper {{#if in_nav}}class="indent"{{/if}}> {{/if}} {{#each pages}} {{>sitemenu_item}} {{/each}} {{#if in_nav}} </div> </div> {{/if}} {{else}} {{#if in_nav}} <div class="page-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> <a href="{{project_url}}" rel="history">{{title}}</a> </div> {{/if}} {{/if}}</script>
+<script type="text/x-handlebars-template" id="sitemenu_item">{{#if is_set}} {{#if in_nav}} <div class="set-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> {{#if_equal set_id 0}} {{#if has_children}} {{#if_equal previous_type "page"}} <div class="break"></div> {{/if_equal}} {{/if}} {{/if_equal}} {{#if in_nav}} <a href="{{project_url}}" >{{title}}</a> {{/if}} <div data-set-wrapper {{#if in_nav}}class="indent"{{/if}}> {{/if}} {{#each pages}} {{>sitemenu_item}} {{/each}} {{#if in_nav}} </div> </div> {{/if}} {{else}} {{#if in_nav}} <div class="page-link" data-link-pid="{{id}}" data-prevtype="{{previous_type}}"> <a href="{{project_url}}" >{{title}}</a> </div> {{/if}} {{/if}}</script>
 <script type="text/x-handlebars-template" id="pin"><div class="page_container{{#if pin_options.overlay}} overlay{{/if}}{{#if pin_options.accommodate}} accommodate{{/if}}{{#if pin_options.fixed}} fixed{{/if}}{{#if pin_options.exclude_mobile}} exclude_mobile{{/if}}{{#if pin_options.exclude_desktop}} exclude_desktop{{/if}}{{#if_equal pin_options.position 'bottom'}}{{#unless pin_options.fixed}} bottom_pin_invisibility{{/unless}}{{/if_equal}}" {{#if page_options.local_layout_options.split_responsive}}split-responsive {{else}}{{#if page_options.local_layout_options.split_layout}}split-layout {{/if}}{{/if}}local-style="{{id}}"> <div class="page container container_width clearfix" data-container="content" data-id="{{id}}"> <bodycopy class="bodycopy content content_padding"> {{#if_option "title_in_project"}} {{#if show_title}} <div class="project_title" style="display: none"> {{{title}}} </div> {{/if}} {{/if_option}} <div class="page_content clearfix" data-elementresizer data-resize-parent> {{print "content"}} </div> {{{ page_options.svg_overlay }}} </bodycopy> </div> <div class="page_background"></div> <style class="local-css" data-target="{{id}}"> {{{ page_options.local_css }}} </style> {{#if_all backdrop backdrop_enabled}} <div data-backdrop="{{backdrop.backdrop_path}}" class="backdrop" data-view="Backdrop" data-id="{{backdrop.page_id}}">[script type="text/json" data-set="backdrop_data">{{{stringify backdrop}}}[/script></div> {{/if_all}} </div></script>
 <script type="text/x-handlebars-template" id="pinned_top">{{#each pinned}} {{#if pin}} {{#if_equal pin_options.position 'top'}} {{>pin}} {{/if_equal}} {{/if}} {{/each}}</script>
 <script type="text/x-handlebars-template" id="pinned_bottom">{{#each pinned}} {{#if pin}} {{#if_equal pin_options.position 'bottom'}} {{>pin}} {{/if_equal}} {{/if}} {{/each}}</script>
@@ -277,20 +277,20 @@ document.addEventListener("DOMContentLoaded", function() {
 				<projectcontent><div grid-row="" grid-pad="1" grid-gutter="2" class="regnavbar-left">
   <div grid-col="4" grid-pad="1">
     &nbsp; &nbsp;
-    <a href="Landing-Page.html" rel="history" class="logo-nav--small">
+    <a href="Landing-Page.html"  class="logo-nav--small">
       <span class="homepage-logo-desktop image-link"><img src="../freight.cargo.site/t/original/i/aef7769d0ba89f6970e95aef99f180b969da1208715dcbafcb6322c5549eb70c/SR_Buttons_MobileLogo2-09.png" class="imgnavbutton"></span>
       <span class="homepage-logo-mobile image-link"><img src="../freight.cargo.site/t/original/i/aef7769d0ba89f6970e95aef99f180b969da1208715dcbafcb6322c5549eb70c/SR_Buttons_MobileLogo2-09.png" class="imgnavbutton"></span></a>
   </div>
 
   <div grid-col="8" grid-pad="1" class="regnavbar-right">
     <div style="text-align: right; margin-top: 0px; margin-right: 24px;">
-      <span class="no-mobile"><a href="Current-Volume-2.html" rel="history" class="image-link"><img src="../freight.cargo.site/t/original/i/72266b686b77c3a38e7824a82fec8ed94571c79e8ae517dcdc3506ae083f6d13/SR_Buttons_v20200530a_OC-09.png" alt="CurrentVolume" class="imgnavbutton"></a>
+      <span class="no-mobile"><a href="Current-Volume-2.html"  class="image-link"><img src="../freight.cargo.site/t/original/i/72266b686b77c3a38e7824a82fec8ed94571c79e8ae517dcdc3506ae083f6d13/SR_Buttons_v20200530a_OC-09.png" alt="CurrentVolume" class="imgnavbutton"></a>
         &nbsp;
         <a href="Lifestyle.html" class="image-link"><img src="../freight.cargo.site/t/original/i/f957ae41f1fa38500799b66f264d7813bb7bc599b40efb9e2f323ebf281efa06/SR_Buttons_v20200530a_OC-11.png" alt="Lifestyle" class="imgnavbutton"></a>
         &nbsp;
-        <a href="Archives.html" rel="history" class="image-link"><img src="../freight.cargo.site/t/original/i/6f6c00fbc87e74b295a4dfa1d866968a019b1e2e9d305fd85089d997b15bfee0/SR_Buttons_v20200530a_OC-10.png" alt="Archives" class="imgnavbutton"></a>
+        <a href="Archives.html"  class="image-link"><img src="../freight.cargo.site/t/original/i/6f6c00fbc87e74b295a4dfa1d866968a019b1e2e9d305fd85089d997b15bfee0/SR_Buttons_v20200530a_OC-10.png" alt="Archives" class="imgnavbutton"></a>
         &nbsp;
-        <a href="About-Us.html" rel="history" class="image-link"><img src="../freight.cargo.site/t/original/i/bbe069691f53e2dc1c6f20a0ad3c58b2dab78e6eac8d4c07731da5dc1abaebba/SR_Buttons_v20200530a_OC-12.png" alt="About-Us" class="imgnavbutton"></a>
+        <a href="About-Us.html"  class="image-link"><img src="../freight.cargo.site/t/original/i/bbe069691f53e2dc1c6f20a0ad3c58b2dab78e6eac8d4c07731da5dc1abaebba/SR_Buttons_v20200530a_OC-12.png" alt="About-Us" class="imgnavbutton"></a>
 
       </span>
     </div>
@@ -416,70 +416,70 @@ document.addEventListener("DOMContentLoaded", function() {
   <!--START MATRIX GENERATED CODE HERE-->
 <div grid-row="" grid-pad="2" grid-gutter="4" grid-responsive="">
   <div grid-col="x10" grid-pad="2">
-  <a href="Weaving-Timelines-The-Seeds-Sow-Deeper-Than-We-Know.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/90c4091c13064f059f3bf4d85e437e847215dd8dd72c9e26ce616e42510c6569/Thumbnail-hero-min.png" style="width: 100%" border="0" alt="Thumbnail image for Weaving Timelines: The Seeds Sow Deeper Than We Know"><br>
+  <a href="Weaving-Timelines-The-Seeds-Sow-Deeper-Than-We-Know.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/90c4091c13064f059f3bf4d85e437e847215dd8dd72c9e26ce616e42510c6569/Thumbnail-hero-min.png" style="width: 100%" border="0" alt="Thumbnail image for Weaving Timelines: The Seeds Sow Deeper Than We Know"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>Weaving Timelines: The Seeds Sow Deeper Than We Know
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Visual artist Marshall Hoang threads together past and present in this stunning photo series. </span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="The-Sixth-Love-Language.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/194c93624c054c3e8159621ae16670acd062be9e6f76f25095d39afceec230b6/thumbnail2.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Sixth Love Language"><br>
+  <a href="The-Sixth-Love-Language.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/194c93624c054c3e8159621ae16670acd062be9e6f76f25095d39afceec230b6/thumbnail2.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Sixth Love Language"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>The Sixth Love Language
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Writer Linh S. Nguyễn on how she learned to love in the language of food.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="The-Tokyo-Aesthetic-Dispatches-from-the-Streets-of-Fashion-Week.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/1bc340c6cac4e3520e2b65e1a5ebef1cfb2831803ba0188689ef398ea174b00a/For-Sticky-7.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Tokyo Aesthetic: Dispatches from the Streets of Fashion Week"><br>
+  <a href="The-Tokyo-Aesthetic-Dispatches-from-the-Streets-of-Fashion-Week.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/1bc340c6cac4e3520e2b65e1a5ebef1cfb2831803ba0188689ef398ea174b00a/For-Sticky-7.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Tokyo Aesthetic: Dispatches from the Streets of Fashion Week"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>The Tokyo Aesthetic: Dispatches from the Streets of Fashion Week
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Photographer Jean-Guillaume Bastin reminisces on his years spent chronicling Tokyo's celebrated October Fashion Week.</span></a>
 </div></div><br><div grid-row="" grid-pad="2" grid-gutter="4" grid-responsive="">
   <div grid-col="x10" grid-pad="2">
-  <a href="Drawing-Strength-from-Within-Perspectives-from-Mixed-Martial-Arts.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/099402d6f230b46dc26804b637818be0d9a03944007e1a7e0f6dfb8762cbe196/Stickyrice_MMA_homepage.jpg" style="width: 100%" border="0" alt="Thumbnail image for Drawing Strength from Within: Perspectives from Mixed Martial Arts Fighters"><br>
+  <a href="Drawing-Strength-from-Within-Perspectives-from-Mixed-Martial-Arts.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/099402d6f230b46dc26804b637818be0d9a03944007e1a7e0f6dfb8762cbe196/Stickyrice_MMA_homepage.jpg" style="width: 100%" border="0" alt="Thumbnail image for Drawing Strength from Within: Perspectives from Mixed Martial Arts Fighters"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>Drawing Strength from Within: Perspectives from Mixed Martial Arts Fighters
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Celebrated coach and trainer Christian Hip reflects on the art of MMA, and sits down with some of the best fighters (and coaches) in the field.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="The-Sun-Sets-at-Six-A-Conversation-with-Antares-Yee.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/1987ced17fdfc81db52b0023b81c2ae04589bffade63ae3aeef41d74a0d445f5/antares_07-min.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Sun Sets at Six: A Conversation with Antares Yee"><br>
+  <a href="The-Sun-Sets-at-Six-A-Conversation-with-Antares-Yee.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/1987ced17fdfc81db52b0023b81c2ae04589bffade63ae3aeef41d74a0d445f5/antares_07-min.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Sun Sets at Six: A Conversation with Antares Yee"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>The Sun Sets at Six: A Conversation with Antares Yee
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Using the sun mao (榫卯) technique to design his furniture, the creative director or Sun at Six discusses what it's like to create functional works of art in the era of Trump.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="Une-invitation-aux-asiatiques-a-prendre-la-vie-doucement.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/d33d7ca23c5baf46eef56a0764e248563f0044cb54f4707c2aeece34f38db925/Laura-Color-3.jpg" style="width: 100%" border="0" alt="Thumbnail image for Une invitation aux asiatiques a prendre la vie doucement"><br>
+  <a href="Une-invitation-aux-asiatiques-a-prendre-la-vie-doucement.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/d33d7ca23c5baf46eef56a0764e248563f0044cb54f4707c2aeece34f38db925/Laura-Color-3.jpg" style="width: 100%" border="0" alt="Thumbnail image for Une invitation aux asiatiques a prendre la vie doucement"><br>
     <div class="lifestyle-description--padding">
       <b>Entrevue</b><br>Une invitation aux asiatiques a prendre la vie doucement
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Une conversation avec Laura Nhem qui a lancé le podcast Asiate Imparfaite, des entrevues avec des asiatiques qui sont, tout comme Laura, imparfaits.</span></a>
 </div></div><br><div grid-row="" grid-pad="2" grid-gutter="4" grid-responsive="">
   <div grid-col="x10" grid-pad="2">
-  <a href="To-Harness-Your-Inner-Light-Up-Close-with-LIA.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/51febf1738a1048927c7166bd5c93b5d6c3bcd79f538b3693814165821bdc1a2/1.jpg" style="width: 100%" border="0" alt="Thumbnail image for To Harness Your Inner Light - Up Close with LIA"><br>
+  <a href="To-Harness-Your-Inner-Light-Up-Close-with-LIA.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/51febf1738a1048927c7166bd5c93b5d6c3bcd79f538b3693814165821bdc1a2/1.jpg" style="width: 100%" border="0" alt="Thumbnail image for To Harness Your Inner Light - Up Close with LIA"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>To Harness Your Inner Light - Up Close with LIA
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">In her latest EP Vasilia, LIA’s sultry voice hums over bell sounds and shuffling noises as she tells a story of resilience inspired by a Slavic fairytale.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="Art-Versus-Injustice-Catching-Up-With-Albert-Nguyen.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/fd49ed92ae342fb055b74f8318cbc8b1990db3b1e7c9bff4e2caf9cd09b13c9d/Thumbnail-picture-1.jpg" style="width: 100%" border="0" alt="Thumbnail image for Art versus Injustice: an Interview with Albert Nguyen"><br>
+  <a href="Art-Versus-Injustice-Catching-Up-With-Albert-Nguyen.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/fd49ed92ae342fb055b74f8318cbc8b1990db3b1e7c9bff4e2caf9cd09b13c9d/Thumbnail-picture-1.jpg" style="width: 100%" border="0" alt="Thumbnail image for Art versus Injustice: an Interview with Albert Nguyen"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>Art versus Injustice: an Interview with Albert Nguyen
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Art director and graphic design Albert Nguyen on his contribution to the Sticky Rice pagoda fundraiser, the creative process, and everything in between.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="The-Wisdom-of-Style-A-Mix-of-Colours-Prints-and-Eras.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/2557c1b920d067cb757d01a0c6d7b673ecf4c413e8f42acf28d758e6c3190c21/Image-2-min.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Wisdom of Style: A Mix of Colours, Prints and Eras"><br>
+  <a href="The-Wisdom-of-Style-A-Mix-of-Colours-Prints-and-Eras.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/2557c1b920d067cb757d01a0c6d7b673ecf4c413e8f42acf28d758e6c3190c21/Image-2-min.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Wisdom of Style: A Mix of Colours, Prints and Eras"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>The Wisdom of Style: A Mix of Colours, Prints and Eras
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Everyone who's been to a major city's Chinatown knows about the amazing food. But, if you are truly paying attention, this neighbourhood is home to some the most creative fashion choices spearheaded by local seniors.</span></a>
 </div></div><br><div grid-row="" grid-pad="2" grid-gutter="4" grid-responsive="">
   <div grid-col="x10" grid-pad="2">
-  <a href="Cheryl-Sim-Curating-a-Life-Through-Art.html" rel="history" class="a-gen"><img src="../freight.cargo.site/w/450/i/8200ecbd510d8ef20c72ad80403885ed552841a1b28ea298f37403a8f7007d4c/thumbnail.jpg" style="width: 100%" border="0" alt="Thumbnail image for Cheryl Sim: Curating a Life Through Art"><br>
+  <a href="Cheryl-Sim-Curating-a-Life-Through-Art.html"  class="a-gen"><img src="../freight.cargo.site/w/450/i/8200ecbd510d8ef20c72ad80403885ed552841a1b28ea298f37403a8f7007d4c/thumbnail.jpg" style="width: 100%" border="0" alt="Thumbnail image for Cheryl Sim: Curating a Life Through Art"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>Cheryl Sim: Curating a Life Through Art
     </div>
@@ -487,21 +487,21 @@ document.addEventListener("DOMContentLoaded", function() {
 for Contemporary Art</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="Back-to-school-A-teacher-s-thoughts-and-worries.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/ebea07c9b8e04a6fc411b265a9352c72aad2788aa9a62c2bfc9d1d08db1aa5f4/SR_BackToSchool4-1.png" style="width: 100%" border="0" alt="Thumbnail image for Back-to-School: A Teacher's Thoughts and Worries"><br>
+  <a href="Back-to-school-A-teacher-s-thoughts-and-worries.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/ebea07c9b8e04a6fc411b265a9352c72aad2788aa9a62c2bfc9d1d08db1aa5f4/SR_BackToSchool4-1.png" style="width: 100%" border="0" alt="Thumbnail image for Back-to-School: A Teacher's Thoughts and Worries"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>Back-to-School: A Teacher's Thoughts and Worries
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">There have been mixed-feelings about this year’s back-to-school season. Sticky Rice’s Lifestyle editor and educator, Kevin Ah-Sen, shares his concern on the matter and those of concerned teachers and parents.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="For-The-Love-Of-Pho.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/aeceba3eea3d0953cad1f160437291351b983b85f49c8a896001db2db6de7b03/ezgif.com-optimize-4.gif" style="width: 100%" border="0" alt="Thumbnail image for For the Love of Pho"><br>
+  <a href="For-The-Love-Of-Pho.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/aeceba3eea3d0953cad1f160437291351b983b85f49c8a896001db2db6de7b03/ezgif.com-optimize-4.gif" style="width: 100%" border="0" alt="Thumbnail image for For the Love of Pho"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>For the Love of Pho
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">Inspired by the local mobilization from the Vietnamese community last week, we sat down with Julie Tran to discuss last week’s controversy over the Pho King Bon restaurant’s problematic marketing strategy that involved the use of Quebecer slang words and sexually explicit puns to name the various Vietnamese dishes on its menu.</span></a>
 </div></div><br><div grid-row="" grid-pad="2" grid-gutter="4" grid-responsive="">
   <div grid-col="x10" grid-pad="2">
-  <a href="For-the-Love-of-Food-Bridging-the-Gap-Between-Two-Worlds.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/2e7489ce0ecedd83eaa5827cdfd89b6f58d7082b44a54528845eddd833cba710/Yatai_AffichesRGB_20200805a_OC-02.jpg" style="width: 100%" border="0" alt="Thumbnail image for For the Love of Food: Bridging the Gap Between Two Worlds"><br>
+  <a href="For-the-Love-of-Food-Bridging-the-Gap-Between-Two-Worlds.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/2e7489ce0ecedd83eaa5827cdfd89b6f58d7082b44a54528845eddd833cba710/Yatai_AffichesRGB_20200805a_OC-02.jpg" style="width: 100%" border="0" alt="Thumbnail image for For the Love of Food: Bridging the Gap Between Two Worlds"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>For the Love of Food: Bridging the Gap Between Two Worlds
     </div>
@@ -509,21 +509,21 @@ for Contemporary Art</span></a>
 for Contemporary Art</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="Radical-Compassion-In-The-Face-Of-Violence.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/3ecbef7a6d878cefc6a94cfb6977af76cf5d404a22e6a05ff85aa91c9b2b2b5b/CQA_LAM0985-min-1_TMB.jpg" style="width: 100%" border="0" alt="Thumbnail image for Radical Compassion in the Face of Violence"><br>
+  <a href="Radical-Compassion-In-The-Face-Of-Violence.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/3ecbef7a6d878cefc6a94cfb6977af76cf5d404a22e6a05ff85aa91c9b2b2b5b/CQA_LAM0985-min-1_TMB.jpg" style="width: 100%" border="0" alt="Thumbnail image for Radical Compassion in the Face of Violence"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>Radical Compassion in the Face of Violence
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">To bookend our crowdfunding campaign to replace vandalized statues at the Chùa Quan Âm Buddhist pagoda, members of the Sticky Rice team sat down with two of its monks to discuss what it means to be truly compassionate.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="Catching-Up-With-Friends-Family-1-0.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/cec42400d7657c74bd696a4365edf722bacf685031be2dd881f2b79e3a686e22/1080x1350_00057.jpg" style="width: 100%" border="0" alt="Thumbnail image for Catching Up With Friends &amp; Family 1.0"><br>
+  <a href="Catching-Up-With-Friends-Family-1-0.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/cec42400d7657c74bd696a4365edf722bacf685031be2dd881f2b79e3a686e22/1080x1350_00057.jpg" style="width: 100%" border="0" alt="Thumbnail image for Catching Up With Friends &amp; Family 1.0"><br>
     <div class="lifestyle-description--padding">
       <b>Interview</b><br>Catching Up With Friends &amp; Family 1.0
     </div>
     <br><span class="lifestyle-description--padding lifestyle-description--font">You may recognize them from our first issue’s cover. We caught up with our friends to find out what being Asian-Canadian meant for them.</span></a>
 </div></div><br><div grid-row="" grid-pad="2" grid-gutter="4" grid-responsive="">
   <div grid-col="x10" grid-pad="2">
-  <a href="The-Asiancy.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/33e73765bc203cad27ca3d5d2a092955be457ec095e0ed2f1a9503252548cb9b/LS-A1-crop.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Asiancy"><br>
+  <a href="The-Asiancy.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/33e73765bc203cad27ca3d5d2a092955be457ec095e0ed2f1a9503252548cb9b/LS-A1-crop.jpg" style="width: 100%" border="0" alt="Thumbnail image for The Asiancy"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>The Asiancy
     </div>
@@ -531,7 +531,7 @@ for Contemporary Art</span></a>
     it easier for them to connect over food.</span></a>
 </div>
   <div grid-col="x10" grid-pad="2">
-  <a href="Lunar-Traditions.html" rel="history" class="a-gen"><img src="../freight.cargo.site/t/original/i/4e7be84ccd06fe7b1e716f6dc3262966cf7262fc6c62266b7b3cb16814fd439f/RedPocket_01_00000.jpg" style="width: 100%" border="0" alt="Thumbnail image for Lunar Traditions"><br>
+  <a href="Lunar-Traditions.html"  class="a-gen"><img src="../freight.cargo.site/t/original/i/4e7be84ccd06fe7b1e716f6dc3262966cf7262fc6c62266b7b3cb16814fd439f/RedPocket_01_00000.jpg" style="width: 100%" border="0" alt="Thumbnail image for Lunar Traditions"><br>
     <div class="lifestyle-description--padding">
       <b>Spotlight On</b><br>Lunar Traditions
     </div>
@@ -686,7 +686,7 @@ for (var i = 0; i < btns.length; i++) {
 
 			
 			<div class="page_content clearfix" data-elementresizer data-resize-parent>
-				<projectcontent><div grid-row="" grid-pad="0" grid-gutter="0" class=""><div grid-col="x10" grid-pad="0"><div class="mobile-center-align" style="text-align: left"><div style="text-align: left"><span class="logo-footer--small"><a href="Landing-Page.html" rel="history" class="image-link"><img width="440" height="429" width_o="440" height_o="429" data-src="https://freight.cargo.site/t/original/i/da592710ba0bec33737bfc54f48d4d08df8b654cf9aefe1975446cb932f989ec/stickyrice-logo_s.png" data-mid="63739788" border="0" data-scale="12"/></a></span></div><br>
+				<projectcontent><div grid-row="" grid-pad="0" grid-gutter="0" class=""><div grid-col="x10" grid-pad="0"><div class="mobile-center-align" style="text-align: left"><div style="text-align: left"><span class="logo-footer--small"><a href="Landing-Page.html"  class="image-link"><img width="440" height="429" width_o="440" height_o="429" data-src="https://freight.cargo.site/t/original/i/da592710ba0bec33737bfc54f48d4d08df8b654cf9aefe1975446cb932f989ec/stickyrice-logo_s.png" data-mid="63739788" border="0" data-scale="12"/></a></span></div><br>
 </div></div><div grid-col="x10" grid-pad="0"><div class="mobile-center-align" style="text-align: left;">
 <b>FOLLOW US ON</b><br>
 <br>
