@@ -27,8 +27,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 34px;
+  font-weight: 700;
+  font-size: 36px;
   margin-bottom: 30px;
 }
 
@@ -546,19 +546,22 @@ section {
 
 .region-spec-intro .atlas-btn {
   display: inline-block;
-  padding: 6px 30px 8px 30px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 20px 8px 20px;
   color: #fff;
   border-radius: 50px;
   transition: all ease-in-out 0.4s;
+  margin-top: 10px
 }
 
 .region-spec-intro .future-btn {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
-  padding: 6px 30px 8px 30px;
+  padding: 6px 20px 8px 20px;
   color: #fff;
   border-radius: 50px;
   transition: all ease-in-out 0.4s;
+  margin-top: 10px
 }
 
 
@@ -571,6 +574,11 @@ section {
 }
 
 .region-spec-intro .future-btn:hover {
+  color: #0F6E60;
+  background: #fff;
+}
+
+.region-spec-intro .atlas-btn:hover {
   color: #0F6E60;
   background: #fff;
 }
@@ -824,6 +832,18 @@ tr {
 .region-spec-atlas {
 }
 
+.carceral{
+
+}
+
+.region-spec-atlas .fossil-fuel{
+
+}
+
+.region-spec-atlas .agriculture{
+
+}
+
 .region-spec-atlas .content {
   padding: 30px;
   border-radius: 4px;
@@ -847,6 +867,16 @@ tr {
   color: #fff;
   border-radius: 50px;
   transition: all ease-in-out 0.4s;
+}
+
+.region-spec-atlas .read-more-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 20px 8px 20px;
+  color: #fff;
+  border-radius: 50px;
+  transition: all ease-in-out 0.4s;
+  margin-top: 10px
 }
 
 .region-spec-atlas .content .more-btn i {
