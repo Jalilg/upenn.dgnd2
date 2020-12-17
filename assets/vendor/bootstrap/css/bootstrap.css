@@ -475,6 +475,11 @@ mark,
   height: auto;
 }
 
+.vid-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -496,6 +501,11 @@ mark,
 .figure-caption {
   font-size: 90%;
   color: #6c757d;
+}
+
+vid-fluid {
+  max-width: 100%;
+  height: auto;
 }
 
 code {
