@@ -71,17 +71,6 @@ font-weight: 600;
 font-style: italic;
 line-height: 90%;
 }
-
-.song:before {
-  font-family: "Playfair Display", serif;
-  content: '"';
-  size: 40px;
-}
-
-.song:after {
-  font-family: "Playfair Display", serif;
-  content: '"';
-}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
